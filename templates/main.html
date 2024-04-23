@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<link rel="stylesheet" href="{{url_for('static',filename='css/111.css')}}">
+	</head>	
+	<body>
+		<div class = "div-0">
+			<div class="div-1">
+				<h1>Блогосфера</h1>
+				<h4>Наши блоги:</h4>
+    				<table border=1 cellpadding=10>
+						<tr>
+							<th>Автор</th><th>Название</th><th>Текст блога</th><th>Дата</th>
+						</tr>
+					    {% for blog in blogs %}
+        				<tr>		
+							<td> {{blog.author_name}} </td>
+							<td> {{blog.theme}} </td>
+							<td> {{blog.blog_data[:200]}}... <a href="{{url_for('showtext', text=blog.blog_data)}}">показать полностью </a> </td>
+							<td> {{blog.date}} </td>
+						</tr>
+    					{% endfor %}
+    				</table>
+				</div>
+			<div class="div-2">
+				<h3>
+					Создать новую заметку
+				</h3>
+				<form action= "{{url_for('add_blog')}}" method="post">
+					<p><input type="text" name="author_name" placeholder="Введите имя автора" size="18" /></p>   
+					<p>	<input type="text" name="theme" placeholder="Введите тему заметки" size="18" /> </p>
+					<p>	<textarea name="blog_data" placeholder="Текст сообщения"></textarea></p>
+					<p>	<input type="text" name="date" placeholder="Введите дату создания" size="18" /> </p>
+						<button type="submit">Отправить</button> 
+						<button type="reset">Отмена</button>
+					</p>
+				</form>
+				
+			</div>
+		</div>
+	</body>
+</html>
+
