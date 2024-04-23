@@ -1,0 +1,13 @@
+.div-0 {
+  display: flex;
+}
+.div-1 {
+  font-family: Arial, sans-serif;
+  flex: 2;
+  }
+.div-2 {
+  margin-left: 15px;
+  font-family: Arial, sans-serif;
+  flex: 1;
+  }
+  
